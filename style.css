@@ -1,0 +1,128 @@
+:root {
+    --bg: #050505;
+    --terminal: #101010;
+    --accent: #00ff41;
+    --text-main: #f0f0f0;
+    --text-dim: #777;
+    --border: #222;
+}
+
+* { box-sizing: border-box; scroll-behavior: smooth; }
+
+body {
+    background-color: var(--bg);
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* --- Layout Optimizer --- */
+.portfolio-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+/* Scanline Overlay */
+.scanline {
+    width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                linear-gradient(to right, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 4px, 3px 100%;
+    position: fixed; top: 0; left: 0; pointer-events: none; z-index: 99; opacity: 0.1;
+}
+
+/* Navigation */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 0;
+    font-family: 'Fira Code', monospace;
+}
+
+.nav-links a {
+    color: var(--text-dim);
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 0.9rem;
+}
+
+.nav-links a:hover { color: var(--accent); }
+
+/* Hero Section */
+.hero { padding: 60px 0; }
+
+.prompt { font-family: 'Fira Code', monospace; color: var(--text-dim); }
+
+h1.typing-text {
+    font-family: 'Courier Prime', monospace;
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    color: var(--accent);
+    margin: 10px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    border-right: 3px solid var(--accent);
+    animation: typing 2s steps(17, end) forwards, blink 0.8s step-end infinite;
+}
+
+@keyframes typing { from { width: 0 } to { width: 17ch; } }
+@keyframes blink { from, to { border-color: transparent } 50% { border-color: var(--accent) } }
+
+.subtitle { font-family: 'Courier Prime', monospace; color: var(--text-dim); font-size: 1.1rem; }
+
+.tech-stack { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+.badge { background: #111; border: 1px solid var(--border); padding: 5px 12px; font-family: 'Fira Code', monospace; font-size: 0.8rem; color: var(--accent); }
+
+/* Sections */
+.section { padding: 80px 0; }
+.section-title { font-family: 'Fira Code', monospace; color: var(--text-dim); font-size: 1rem; border-left: 3px solid var(--accent); padding-left: 15px; margin-bottom: 40px; }
+
+/* Projects Grid */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.project-card {
+    background: #0a0a0a;
+    border: 1px solid var(--border);
+    transition: 0.3s;
+}
+
+.project-card:hover { border-color: var(--accent); transform: translateY(-5px); }
+
+.card-status { background: #111; font-size: 0.7rem; padding: 5px 15px; border-bottom: 1px solid var(--border); color: var(--accent); font-family: 'Fira Code', monospace; }
+
+.card-body { padding: 25px; }
+.card-body h3 { margin: 0 0 10px 0; }
+.card-body p { color: var(--text-dim); font-size: 0.95rem; line-height: 1.5; }
+.tags { margin-top: 15px; font-family: 'Fira Code', monospace; color: var(--accent); font-size: 0.75rem; opacity: 0.7; }
+
+/* Contact Terminal */
+.terminal-window { background: var(--terminal); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.terminal-header { background: #1a1a1a; padding: 12px; display: flex; align-items: center; border-bottom: 1px solid var(--border); }
+.btns { display: flex; gap: 6px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.red { background: #ff5f56; } .yellow { background: #ffbd2e; } .green { background: #27c93f; }
+.tab { margin-left: 20px; font-family: 'Fira Code', monospace; font-size: 0.7rem; color: var(--text-dim); }
+
+.terminal-body { padding: 30px; font-family: 'Fira Code', monospace; }
+.form-row { display: flex; margin-bottom: 25px; border-bottom: 1px solid #1a1a1a; padding-bottom: 5px; }
+.form-row label { color: var(--accent); width: 120px; flex-shrink: 0; }
+input, textarea { background: transparent; border: none; color: white; width: 100%; outline: none; font-family: inherit; font-size: 1rem; }
+button { background: var(--accent); color: black; border: none; padding: 12px 25px; font-weight: bold; cursor: pointer; font-family: inherit; }
+button:hover { box-shadow: 0 0 15px var(--accent); opacity: 0.9; }
+
+#statusOutput { margin-top: 20px; padding: 10px; border-left: 3px solid var(--accent); }
+.hidden { display: none; }
+
+footer { text-align: center; padding: 40px; color: var(--text-dim); font-family: 'Fira Code', monospace; font-size: 0.8rem; }
+
+@media (max-width: 600px) {
+    .portfolio-container { padding: 0 20px; }
+    .form-row { flex-direction: column; }
+    .form-row label { margin-bottom: 5px; }
+}

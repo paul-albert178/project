@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paul // Dev_Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Fira+Code:wght@400;500&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="scanline"></div>
+    
+    <div class="portfolio-container">
+        <nav class="navbar">
+            <div class="brand">C:\USERS\PAUL> <span class="cursor">_</span></div>
+            <div class="nav-links">
+                <a href="#projects">[ PROJECTS ]</a>
+                <a href="#contact">[ CONTACT ]</a>
+            </div>
+        </nav>
+
+        <main>
+            <header class="hero">
+                <div class="terminal-loader">
+                    <span class="prompt">guest@paul_portfolio:~$ whoami</span>
+                    <h1 class="typing-text">Hello, I am Paul</h1>
+                </div>
+                <p class="subtitle">First-Year BCA Student • Cybersecurity Specialist • Backend Dev</p>
+                <div class="tech-stack">
+                    <span class="badge">Node.js</span>
+                    <span class="badge">PostgreSQL</span>
+                    <span class="badge">Python</span>
+                    <span class="badge">C_Lang</span>
+                </div>
+            </header>
+
+            <section id="projects" class="section">
+                <h2 class="section-title">01_PROJECT_LOGS</h2>
+                <div class="grid-container">
+                    <div class="project-card">
+                        <div class="card-status">STATUS: DEPLOYED</div>
+                        <div class="card-body">
+                            <h3>Express_Auth_API</h3>
+                            <p>Secure backend with JWT and PostgreSQL integration.</p>
+                            <div class="tags">#Backend #Security</div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="card-status">STATUS: ACTIVE</div>
+                        <div class="card-body">
+                            <h3>Network_Scanner</h3>
+                            <p>Python script for local vulnerability assessment.</p>
+                            <div class="tags">#Python #CyberSec</div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="card-status">STATUS: STABLE</div>
+                        <div class="card-body">
+                            <h3>C_Sys_Utility</h3>
+                            <p>Low-level memory monitoring tool for Linux environments.</p>
+                            <div class="tags">#C #Systems</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="section">
+                <h2 class="section-title">02_ESTABLISH_CONNECTION</h2>
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <div class="btns">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <span class="tab">message_sender.exe</span>
+                    </div>
+                    <div class="terminal-body">
+                        <form id="contactForm">
+                            <div class="form-row">
+                                <label>USER_NAME:</label>
+                                <input type="text" id="name" required spellcheck="false">
+                            </div>
+                            <div class="form-row">
+                                <label>USER_EMAIL:</label>
+                                <input type="email" id="email" required spellcheck="false">
+                            </div>
+                            <div class="form-row message-row">
+                                <label>INPUT_MSG:</label>
+                                <textarea id="message" rows="4" required></textarea>
+                            </div>
+                            <button type="submit" id="submitBtn">./TRANSMIT_DATA</button>
+                        </form>
+                        <div id="statusOutput" class="hidden"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 // PAUL_SYSTEMS_INCORP</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
