@@ -2,27 +2,47 @@ name: Node.js Backend CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   backend:
     runs-on: ubuntu-latest
+
     env:
       DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: 20
+
       - name: Install dependencies
-        run: npm install
         working-directory: ./backend
-      - name: Start backend and test health
+        run: npm install
+
+      - name: Run backend and test
+        working-directory: ./backend
         run: |
-          node ./backend/server.js &
+          node server.js &
           SERVER_PID=$!
+
           echo "Waiting for backend..."
-          sleep 5
+          
+          # wait until server responds
+          for i in {1..10}; do
+            if curl -s http://localhost:5000/health; then
+              echo " Backend is up"
+              break
+            fi
+            echo "Retrying..."
+            sleep 2
+          done
+
+          # final check (fail if not working)
           curl -f http://localhost:5000/health
+
           kill $SERVER_PID
