@@ -19,7 +19,7 @@ contactForm.addEventListener('submit', async (e) => {
 
     try {
         // Replace with your actual backend URL in production
-        const response = await fetch('http://localhost:5000/submit', {
+        const response = await fetch('https://project-r3uf.onrender.com/submit', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
