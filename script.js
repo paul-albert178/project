@@ -5,7 +5,7 @@ const submitBtn = document.getElementById('submitBtn');
 contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // Prepare data (Key names must match your backend req.body)
+    
     const payload = {
         name: document.getElementById('name').value,
         email: document.getElementById('email').value,
@@ -18,7 +18,7 @@ contactForm.addEventListener('submit', async (e) => {
     statusOutput.classList.add('hidden');
 
     try {
-        // Replace with your actual backend URL in production
+        
         const response = await fetch('https://project-r3uf.onrender.com/submit', {
             method: 'POST',
             headers: {

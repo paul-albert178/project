@@ -61,7 +61,7 @@ app.post("/submit", async (req, res) => {
 
     console.log(` Message from ${name} inserted successfully`);
 
-    // ✅ IMPORTANT: Send JSON (fixes your error)
+    
     res.json({
       success: true,
       message: "Message sent successfully"
@@ -77,7 +77,7 @@ app.post("/submit", async (req, res) => {
   }
 });
 
-// Health check route (for CI / Render)
+// Health check route 
 app.get("/health", (req, res) => {
   res.json({
     status: "OK",
